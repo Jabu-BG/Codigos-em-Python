@@ -1,2 +1,2 @@
-# Codigos-em-Python
-Meus códigos em Python
+# Codigos de Python
+- 🖥️ Alguns dos meus códigos em Python
