@@ -1,0 +1,26 @@
+def validar_CPF(cpf: str) -> (bool, str):
+    # Permite que o CPF seja digitado com pontos e hífen!
+    cpf = ''.join(filter(str.isdigit, cpf))
+    
+    # Verifica se CPF é repitido.
+    if len(cpf) != 11:
+        return False, "CPF deve possuir 11 números."
+    if cpf == cpf[0] * 11:
+        return False, "Números repetidos!"
+
+    # Esse é complexo... O loop percorre os dois dígitos verificadores, fazendo uma soma para o primeiro e segundo digito e compara com o dígito correspondente no CPF
+    for i in range(9, 11):
+        soma = sum(int(cpf[num]) * ((i + 1) - num) for num in range(i))
+        digito = (soma * 10) % 11
+        if digito == 10:
+            digito = 0
+        if digito != int(cpf[i]):
+            return False, "Dígitos verificadores errados!
+            
+    # Se todos os anteriores estão corretos, então, acabou!
+    return True, "CPF válido!"
+
+    # Deixa o usúario colocar o CPF que ele quiser para a execusão do codígo.
+cpf_input = input("Digite seu CPF: ")
+valido, mensagem = validar_CPF(cpf_input)
+print(mensagem)
