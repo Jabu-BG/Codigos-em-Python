@@ -1,0 +1,17 @@
+from dataclasses import dataclass
+@dataclass
+
+class Task
+    titulo: str
+    tarefa: str
+
+    def adicionar(self, tarefa):
+        self.tarefa.append(tarefa)
+
+    def listar(self):
+        for tarefa in self.tarefa:
+            print(f"Tarefa: {tarefa}")
+
+if __name__ == "__main__":
+
+    
